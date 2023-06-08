@@ -1,0 +1,28 @@
+{
+  "name": "my-new-project",
+  "type": "module",
+  "devDependencies": {
+    "@wdio/allure-reporter": "^8.10.4",
+    "@wdio/cli": "^8.10.2",
+    "@wdio/cucumber-framework": "^8.10.3",
+    "@wdio/local-runner": "^8.10.2",
+    "@wdio/shared-store-service": "^8.10.4",
+    "@wdio/spec-reporter": "^8.10.2",
+    "chromedriver": "^113.0.0",
+    "geckodriver": "^4.0.0",
+    "wdio-chromedriver-service": "^8.1.1",
+    "wdio-edgedriver-service": "^3.0.1",
+    "wdio-geckodriver-service": "^5.0.1"
+  },
+  "scripts": {
+    "open-allure": ".\\node_modules\\.bin\\allure generate --clean allure-results && allure open",
+    "test": "wdio run ./wdio.conf.js && npm run open-allure",
+    "testsuite": "wdio run ./wdio.conf.js --suite regression && npm run open-allure",
+    "bookingfeature": "wdio run ./wdio.conf.js --cucumberOptions.tagExpressions='@bookingfeature'"
+  },
+  "dependencies": {
+    "allure-commandline": "^2.22.0",
+    "chai": "^4.3.7",
+    "chai-as-promised": "^7.1.1"
+  }
+}
