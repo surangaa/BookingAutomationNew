@@ -32,26 +32,22 @@ When(/^User selects second product on the list$/, async () => {
 	let pdetails = await ProductComponent.selectSecondProduct();
     report.addStep('select second product from the list')
 
-    var key = Object.keys(pdetails)[0];
-    var key3 = Object.keys(pdetails)[1];
-    var key4 = Object.keys(pdetails)[2];
+    let key3 = Object.keys(pdetails)[0];
+    let key4 = Object.keys(pdetails)[3];
 
-    await setValue("productprice", pdetails[key3]);
-    await setValue("extractedtax", pdetails[key4]);
-    console.log("productprice and extractedtax"+ pdetails[key3] + pdetails[key4])
+    await setValue("fullamount", pdetails[key4])
     report.addStep('storing product price in the local storage')
 
-    await ProductComponent.verifyProductDetails(pdetails[key]);
+    await ProductComponent.verifyProductDetails(pdetails[key3]);
     report.addStep('verify product details')
 
 });
 
 When(/^user selects Rooms count and proceed$/, async() => {
 //select Room count 
-   const getp = await getValue("productprice");
-   const et = await getValue("extractedtax");
-   
-	await ProductComponent.selectRoomCount(getp,et)
+   const fm =await getValue("fullamount")
+   console.log('here is'+ fm)
+	await ProductComponent.selectRoomCount(fm)
     report.addStep('select the room count and proceed')
 
 });

@@ -20,11 +20,11 @@ class ProductPage {
   }
 
   get btn_Reserve() {
-    return $('//button[@id="b_tt_holder_1"]');
+    return $('button[data-tooltip-class="submit_holder_button_tooltip"]');
   }
 
   get lbl_HeadingLevel() {
-    return $('//button[@data-sb-id="main"]');
+    return $('h2*=Availability');
   }
 
   get lbl_TaxAmount() {
@@ -41,6 +41,15 @@ class ProductPage {
     return $$(
       'div[class*="prd-taxes-and-fees-under-price"]'
     );
+  }
+
+  get lbl_OriginalPrice(){
+    return $("//span[@class='c5888af24f e729ed5ab6']");
+  }
+
+  async listCount(){
+    var listlength = this.lbl_Price.length;
+    return listlength
   }
 
 }

@@ -23,9 +23,6 @@ class OrderComponent {
   }
 
   async fillDetailsForm() {
-    // let a = firstname;
-    // let b = lastname;
-    // let c = emailaddress;
 
     //fill out firstname, lastname, email
     await OrderPage.tf_FirstName.setValue(staticData.firstName);
@@ -34,22 +31,21 @@ class OrderComponent {
 
     await OrderPage.tf_EmailAddress.setValue(staticData.email);
 
-    browser.pause(60000);
+    await browser.pause(60000);
     //click next button
     await OrderPage.btn_Next.click();
-
-    // return { a, b, c };
   }
 
-  async verifyFormDetails(fn, ln, em) {
+  async verifyFormDetails() {
     browser.pause(5000);
     //verify full name and email
-    const fullname = fn + " " + ln;
+    const fullname =  staticData.firstName + " " + staticData.lastName;
+
     const fullname2 = await OrderPage.lbl_AccountDetails[0].getText();
     const email2 = await OrderPage.lbl_AccountDetails[1].getText();
-    // console.log(fullname)
+
     await Chaiexpect(fullname).to.equal(fullname2);
-    await Chaiexpect(em).to.equal(email2);
+    await Chaiexpect(staticData.email).to.equal(email2);
 
     //click on booking.com logo
     await OrderPage.lnk_BookingLogo.click();

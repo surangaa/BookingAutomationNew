@@ -18,7 +18,10 @@
     "open-allure": ".\\node_modules\\.bin\\allure generate --clean allure-results && allure open",
     "test": "wdio run ./wdio.conf.js && npm run open-allure",
     "testsuite": "wdio run ./wdio.conf.js --suite regression && npm run open-allure",
-    "bookingfeature": "wdio run ./wdio.conf.js --cucumberOptions.tagExpressions='@bookingfeature'"
+    "bookingfeature": "wdio run ./wdio.conf.js --cucumberOptions.tagExpressions='@bookingfeature'",
+    "test:qa": "wdio run ./wdio.QA.conf.js && npm run open-allure",
+    "test:stg": "wdio run ./wdio.STG.conf.js && npm run open-allure"
+
   },
   "dependencies": {
     "allure-commandline": "^2.22.0",

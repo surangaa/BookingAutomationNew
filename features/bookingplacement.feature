@@ -2,7 +2,7 @@
 Feature: TC_001_ValidatingBookingProcess
 
     Background:
-        Given The user is navigated to "https://www.booking.com/" in "QA"
+        Given The user is navigated to "/"
 
     Scenario: As a user, I can proceed with placing order, cancel the booking process and navigate back to home page
         When  the user perform country selection

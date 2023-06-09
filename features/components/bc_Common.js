@@ -1,10 +1,9 @@
 
 class CommonComponent {
-    async openHomePage(url, environment) {
-       //load the booking.com website url  
-       if(environment == "QA"){
+    async openHomePage(url) {
+       //load the booking.com website url 
         await browser.url(url);  
-       }
+       
     }
   
     verifyPageUrl = async () => {
