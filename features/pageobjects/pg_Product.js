@@ -47,10 +47,6 @@ class ProductPage {
     return $('(//div[@data-testid="availability-rate-information"]//div/span[1])[3]');
   }
 
-  async listCount(){
-    var listlength = this.lbl_Price.length;
-    return listlength
-  }
 
 }
 

@@ -14,14 +14,14 @@ class ProductComponent {
     const extractedtax = await ProductPage.lbl_TaxAmount.getText();
 
     //calculate amount with tax
-    const fa = await this.getTaxAndDiscount(extractedtax, productprice);
+    const calculatedtax = await this.getTax(extractedtax, productprice);
 
-    return { productname, productprice, extractedtax, fa };
+    return { productname, productprice, extractedtax, calculatedtax };
   }
 
   async selectSecondProduct() {
     await browser.pause(2000);
-    const pd = await this.getProductDetails();
+    const prodetails = await this.getProductDetails();
 
     //click on second Product and naviagte to product details page
     await ProductPage.lbl_SecondProductName.click();
@@ -29,7 +29,7 @@ class ProductComponent {
     //switch to product details page
     await browser.switchWindow("booking.com/hotel");
 
-    return pd;
+    return prodetails;
   }
 
   async verifyProductDetails(productName) {
@@ -57,14 +57,14 @@ class ProductComponent {
 
   async getDiscount(productprice) {
     //get original price of the product
-    const op = await ProductPage.lbl_OriginalPrice.getText();
-    const originalprice = op.replace(/[^\d,.-]/g, "");
+    const originalprice = await ProductPage.lbl_OriginalPrice.getText();
+    const originalprice2 = originalprice.replace(/[^\d,.-]/g, "");
 
     //get current price after discount
-    const price = productprice.replace(/[^\d,.-]/g, "");
+    const currentprice = productprice.replace(/[^\d,.-]/g, "");
 
     //get discounted amount by originalprice-price
-    const discountedamount = parseInt(originalprice) - parseInt(price);
+    const discountedamount = parseInt(originalprice2) - parseInt(currentprice);
 
     return discountedamount;
   }
@@ -88,10 +88,10 @@ class ProductComponent {
 
       const tabletax = gettax.replace(/[^\d,.-]/g, "");
       //calculate full amount of the row
-      const famount = parseInt(tableprice) + parseInt(tabletax);
+      const full_amount2 = parseInt(tableprice) + parseInt(tabletax);
 
-     //compare the calculated price with the amount got in the product details page
-      if (full_amount == famount) {
+     //compare the calculated price with the fullamount got the product details page
+      if (full_amount == full_amount2) {
         //if the values are similar select room count
         await ProductPage.dd_RoomCount[count].selectByAttribute("value", "1");
 
