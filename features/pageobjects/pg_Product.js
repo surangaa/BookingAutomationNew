@@ -1,7 +1,7 @@
 
 class ProductPage {
   get lbl_SecondProductName() {
-    return $('(//h3[@class="a4225678b2"]//a//div[@data-testid="title"])[2]');
+    return $("(//div[@data-testid='property-card'])[2]//h3//div[1]")
   }
 
   get lbl_SecondProductPrice() {
@@ -11,16 +11,16 @@ class ProductPage {
   }
 
   get lbl_ProductNamePd() {
-    return $('h2[class="d2fee87262 pp-header__title"]');
+    return $('//h2[@class="d2fee87262 pp-header__title"]');
   }
 
   get dd_RoomCount() {
-    //get room selection dropdowns in the table
+    //get all room selection dropdowns in the table
     return $$('//select[@class="hprt-nos-select js-hprt-nos-select"]');
   }
 
   get btn_Reserve() {
-    return $('button[data-tooltip-class="submit_holder_button_tooltip"]');
+    return $('//button[@data-tooltip-class="submit_holder_button_tooltip"]');
   }
 
   get lbl_HeadingLevel() {
@@ -32,19 +32,19 @@ class ProductPage {
   }
 
   get lbl_Price() {
-    //get price elements in the table
-    return $$('span[class="prco-valign-middle-helper"]');
+    //get all price elements in the table
+    return $$('//span[@class="prco-valign-middle-helper"]');
   }
 
   get lbl_Tax() {
-    //get tax elements in the table
+    //get all tax elements in the table
     return $$(
       'div[class*="prd-taxes-and-fees-under-price"]'
     );
   }
 
   get lbl_OriginalPrice(){
-    return $("//span[@class='c5888af24f e729ed5ab6']");
+    return $('(//div[@data-testid="availability-rate-information"]//div/span[1])[3]');
   }
 
   async listCount(){
