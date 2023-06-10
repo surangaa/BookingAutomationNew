@@ -1,40 +1,48 @@
 
 class OrderPage {
-  get lbl_Dates() {
-    return $$('time span[class="bui-date__title"]');
+  get lbl_Indate() {
+    return $('(//time/descendant::span)[1]');
+  }
+
+  get lbl_Outdate() {
+    return $('(//time/descendant::span)[3]');
   }
 
   get lbl_ProductTotal() {
     return $(
-      'div[class="bp-price-details__total-price e2e-price-details__total-charge--user"] span'
+      'div[class*="bp-price-details__total-price"] span'
     );
   }
 
   get tf_FirstName() {
-    return $("#firstname");
+    return $('//input[@id="firstname"]');
   }
 
   get tf_LastName() {
-    return $("#lastname");
+    return $('//input[@id="lastname"]');
   }
 
   get tf_EmailAddress() {
-    return $("#email");
+    return $('//input[@id="email"]');
   }
   get btn_Next() {
     return $("button*= Next: Final details");
   }
 
-  get lbl_AccountDetails() {
-    return $$('div[class="bp-u-text-ellipsis bui-f-color-grayscale"]');
+  get lbl_FullName() {
+    return $('(//ul)[4]/li/div[2]');
+  }
+
+  get lbl_Email() {
+    return $('((//ul)[4]/li/div)[4]');
   }
 
   get lnk_BookingLogo() {
     return $("aria/Booking.com online hotel reservations");
   }
 
-  get dd_Country() {
-    return $$('span[class="f9afbb0024 e733f1c8d1"]');
+  get lbl_Tax(){
+    return $('(//div[@class="bui-u-text-right"])[2]/div');
   }
 
 }

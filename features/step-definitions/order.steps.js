@@ -8,11 +8,12 @@ Then(/^checkout, checkin dates and amount should be same$/, async () => {
     //verify booking details in the Order Page
     const checkinorder = await getValue("checkindate");
     const checkoutorder = await getValue("checkoutdate");
-    const productprice = await getValue("productprice");
-    report.addStep('getting checkindate, checkoutdate and product price from local storage')
+    const fullamount = await getValue("fullamount")
+
+    report.addStep('getting checkindate, checkoutdate and totalcost from local storage')
  
-    await OrderComponent.verifyBooking(checkinorder, checkoutorder, productprice);
-    report.addStep('verifing the checkindate, checkoutdate and product price details')
+    await OrderComponent.verifyBooking(checkinorder, checkoutorder, fullamount);
+    report.addStep('verifing the checkindate, checkoutdate and total cost')
 
   });
   
