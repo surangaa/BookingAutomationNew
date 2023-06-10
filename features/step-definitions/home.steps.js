@@ -21,8 +21,8 @@ When(/^the user perform country selection$/,async () => {
 
 Then(/^the country should be changed to UK$/, async () => {
     //verify the country selection
-    const elem = await HomePage.btn_CountryUk2
-    await expect(elem).toBeDisplayed();
+    const countryuk = await HomePage.btn_CountryUk2
+    await expect(countryuk).toBeDisplayed();
     report.addStep('verify whether UK is selected')
 
 });
@@ -38,8 +38,8 @@ When(/^the user perform currency selection$/, async () => {
 Then(/^the currency should be changed to USD$/,async () => {
     await browser.pause(3000);
     //verify the currency selection
-    const elem2 = await HomePage.btn_CurrencyUsd2
-    await expect(elem2).toBeDisplayed()
+    const currencyusd = await HomePage.btn_CurrencyUsd2
+    await expect(currencyusd).toBeDisplayed()
     report.addStep('verify whether USD is selected')
 
 });
@@ -55,8 +55,8 @@ When(/^the user click on Stays tab$/, async () => {
 Then(/^the tab should be changed to Stays$/, async () => {
 	await browser.pause(3000);
     //verify Stays tab selection
-    const elem3 = await SearchPage.tf_Location
-    await expect(elem3).toBeDisplayed()
+    const locationinput = await SearchPage.tf_Location
+    await expect(locationinput).toBeDisplayed()
     report.addStep('verify whether the location input is loaded')
 
 });
@@ -70,15 +70,16 @@ When(/^the user enter the location$/, async () => {
 
 When(/^the user selects check in and check out dates$/, async() => {
     //selelct checkin and checkout times
-	const dd = await SearchComponent.selectCheckinCheckout();
+	const datesarray = await SearchComponent.selectCheckinCheckout();
 
-    const key1 = Object.keys(dd)[0];
-    const key2 = Object.keys(dd)[1];
+    const key1 = Object.keys(datesarray)[0];
+    const key2 = Object.keys(datesarray)[1];
 
     report.addStep('select checkin and checkout dates')
 
-    await setValue("checkindate", dd[key1]);
-    await setValue("checkoutdate", dd[key2]);
+    await setValue("checkindate", datesarray[key1]);
+    await setValue("checkoutdate", datesarray[key2]);
+    
     report.addStep('store checkin and checkout dates in local storage')
  
 });
