@@ -14,9 +14,9 @@ class ProductComponent {
     const extractedtax = await ProductPage.lbl_TaxAmount.getText();
 
     //calculate amount with tax
-    const calculatedtax = await this.getTax(extractedtax, productprice);
+    const withtax = await this.getTax(extractedtax, productprice);
 
-    return { productname, productprice, extractedtax, calculatedtax };
+    return { productname, productprice, extractedtax, withtax };
   }
 
   async selectSecondProduct() {

@@ -28,8 +28,8 @@ class SearchComponent {
     //select checkout date
     await SearchPage.btn_CheckoutDate(out_day);
     //get and store selected checkin and checkout dates
-    let cd = await this.getDates();
-    return cd;
+    let passdates = await this.getDates();
+    return passdates;
   }
 
   async selelctAdultChildCount() {
