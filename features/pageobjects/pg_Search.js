@@ -29,7 +29,7 @@ class SearchPage {
     }
   
     get btn_Search() {
-      return $("button*=Search");
+      return $("//span[text()='Search']/..");
     }
   
     get chk_StarRate() {
@@ -45,15 +45,15 @@ class SearchPage {
     }
   
     get tf_LocationSearch() {
-      return $('input[name="ss"]');
+      return $('//input[@name="ss"]');
     }
   
     get btn_SelectedCheckinDate() {
-      return $('button[data-testid="date-display-field-start"]');
+      return $("//div[@class='f9cf783bde'][2]//button[1]");
     }
   
     get btn_SelectedCheckoutDate() {
-      return $('button[data-testid="date-display-field-end"]');
+      return $("//div[@class='f9cf783bde'][2]//button[2]");
     }
   
     get txt_Count() {
