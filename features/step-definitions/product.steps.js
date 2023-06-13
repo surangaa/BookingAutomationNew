@@ -3,14 +3,17 @@ import SearchComponent from "../components/bc_Search.js";
 import ProductComponent from "../components/bc_Product.js";
 import { setValue, getValue } from "@wdio/shared-store-service";
 import report from "@wdio/allure-reporter";
-import location from "../test-Data/td_product.js";
+import locationservice from '../services/locationservice.js';
+
 
 Then(/^the location should be selected as location$/, async () => {
   // verify the location
   await SearchComponent.clickSearch();
   report.addStep("perform a search");
 
-  await SearchComponent.verifyLocation(location.town);
+  const location = (await locationservice.getLocation()).town
+
+  await SearchComponent.verifyLocation(location);
   report.addStep("verify the location");
 });
 

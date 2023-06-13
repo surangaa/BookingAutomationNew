@@ -6,8 +6,7 @@ import HomePage from '../pageobjects/pg_home.js'
 import SearchPage from '../pageobjects/pg_Search.js'
 import { setValue, getValue } from '@wdio/shared-store-service'
 import report from '@wdio/allure-reporter'
-import location from '../test-Data/td_product.js'
-
+import locationservice from '../services/locationservice.js';
 
 When(/^the user perform country selection$/,async () => {
 //verify page url
@@ -63,9 +62,13 @@ Then(/^the tab should be changed to Stays$/, async () => {
 });
 
 When(/^the user enter the location$/, async () => {
+    
+    const location = (await locationservice.getLocation()).town
+    console.log('location'+ location)
+
     //type the location
     report.addStep('selecting the location')
-	await SearchComponent.selectLocation(location.town);
+	await SearchComponent.selectLocation(location);
 
 });
 
