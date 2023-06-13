@@ -3,7 +3,6 @@ class CommonComponent {
     async openHomePage(url) {
        //load the booking.com website url 
         await browser.url(url);  
-       
     }
   
     verifyPageUrl = async () => {

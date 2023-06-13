@@ -6,13 +6,13 @@ class OrderComponent {
     const checkinPd = await OrderPage.lbl_Indate.getText();
 
     //verify whether checkin date of home page matches checkin date order confirmation page
-    const ci = checkinPd.substring(0, checkinPd.lastIndexOf(" "));
-    await expect(ci).toEqual(indate);
+    const checkin = checkinPd.substring(0, checkinPd.lastIndexOf(" "));
+    await expect(checkin).toEqual(indate);
 
     const checkoutPd = await OrderPage.lbl_Outdate.getText();
     //verify whether checkout date of home page matches checkout date order confirmation page
-    const co = checkoutPd.substring(0, checkoutPd.lastIndexOf(" "));
-    await expect(co).toEqual(outdate);
+    const checkout = checkoutPd.substring(0, checkoutPd.lastIndexOf(" "));
+    await expect(checkout).toEqual(outdate);
 
     const totalcost = await this.getTotalCost();
 
