@@ -1,6 +1,5 @@
 import { expect as Chaiexpect } from "chai";
 import OrderPage from "../pageobjects/pg_Order.js";
-import staticData from "../test-Data/td_user.js";
 
 class OrderComponent {
   async verifyBooking(indate, outdate, total) {
@@ -32,29 +31,29 @@ class OrderComponent {
     return fullamount3;
   }
 
-  async fillDetailsForm() {
+  async fillDetailsForm(firstname, lastname, email) {
     //fill out firstname, lastname, email
-    await OrderPage.tf_FirstName.setValue(staticData.firstName);
+    await OrderPage.tf_FirstName.setValue(firstname);
 
-    await OrderPage.tf_LastName.setValue(staticData.lastName);
+    await OrderPage.tf_LastName.setValue(lastname);
 
-    await OrderPage.tf_EmailAddress.setValue(staticData.email);
+    await OrderPage.tf_EmailAddress.setValue(email);
 
     await browser.pause(6000);
     //click next button
     await OrderPage.btn_Next.click();
   }
 
-  async verifyFormDetails() {
+  async verifyFormDetails(firstname, lastname, email) {
     await browser.pause(5000);
     //verify full name and email
-    const fullname = staticData.firstName + " " + staticData.lastName;
+    const fullname = firstname + " " + lastname;
 
     const fullname2 = await OrderPage.lbl_FullName.getText();
     const email2 = await OrderPage.lbl_Email.getText();
 
     await Chaiexpect(fullname).to.equal(fullname2);
-    await Chaiexpect(staticData.email).to.equal(email2);
+    await Chaiexpect(email).to.equal(email2);
 
     //click on booking.com logo
     await OrderPage.lnk_BookingLogo.click();

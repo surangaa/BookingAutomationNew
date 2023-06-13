@@ -1,15 +1,14 @@
 import SearchPage from "../pageobjects/pg_Search.js";
 import dates from "../test-Data/td_dates.js"
-import location from "../test-Data/td_product.js";
 
 class SearchComponent {
-  async selectLocation() {
+  async selectLocation(location) {
     //click on location text field
     await SearchPage.tf_Location.click();
     await browser.pause(1000);
 
     //set the location value
-    await SearchPage.tf_Location.setValue(location.town);
+    await SearchPage.tf_Location.setValue(location);
     await browser.pause(3000);
 
     //select the suggested first location
@@ -52,10 +51,10 @@ class SearchComponent {
     await SearchPage.btn_Search.click();
   }
 
-  async verifyLocation() {
+  async verifyLocation(location) {
     let locationvalue = await SearchPage.tf_LocationSearch.getValue();
     //get the stored location from the data file
-    let locationpassed = location.town;
+    let locationpassed =  location;
     //verify location
     await expect(locationvalue).toEqual(locationpassed);
   }

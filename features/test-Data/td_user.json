@@ -1,0 +1,14 @@
+[
+  {
+    "userType": "valid_user",
+    "firstName": "Darion",
+    "lastName": "Reilly",
+    "email": "abc@gmail.com"
+  },
+  {
+    "userType": "invalid_user",
+    "firstName": "Damion",
+    "lastName": "Roilly",
+    "email": "abcgmail.nett"
+  }
+]

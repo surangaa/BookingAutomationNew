@@ -20,10 +20,15 @@ Feature: TC_001_ValidatingBookingProcess
         And User selects second product on the list
         When user selects Rooms count and proceed
         Then checkout, checkin dates and amount should be same
-        When user enters firstname, lastname and emailaddress and click Next
-        Then entered details should be same
+        When user enters <userdata> and click Next
+        Then entered <userdata> should be same
         When user dismisses the alert
         Then alert should not be present
+
+        Examples:
+            | userdata   |
+            | valid_user |
+
 
 
 
