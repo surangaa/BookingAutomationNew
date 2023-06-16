@@ -3,18 +3,18 @@
 This project includes a basic flow automation of Booking.com official website. Webdriverio and cucumber is used in implementation
 
 ## Prerequisites to setup project
-install and setup Node
-install an IDE (VS Code)
+- install and setup Node
+- install an IDE (VS Code)
 
 
 ## Steps to run the code
-clone the reporsitory -  git clone https://github.com/surangaa/BookingAutomationProject.git
-Open the project in IDE
-run a 'npm install' to install all the dependencies
-To run the test -> npm run test/ npm run testsuite / npm run bookingfeature 
-To run qa environment -> npm run test:qa
-To run in stg environment -> npm run test:stg
-to run the test in edge browser or firefox browser, edit wdio.conf.js file line 72 accordingly as utils.firefox or utils.edge
+- clone the reporsitory -  git clone https://github.com/surangaa/BookingAutomationNew.git
+- Open the project in IDE
+- run a 'npm install' to install all the dependencies
+- To run the test -> `npm run test`/ `npm run testsuite` / `npm run bookingfeature` 
+- To run qa environment -> `npm run test:qa`
+- To run in stg environment -> `npm run test:stg`
+- to run the test in edge browser or firefox browser, edit wdio.conf.js file line 72 accordingly as utils.firefox or utils.edge
 
 ## Issues faced
 
