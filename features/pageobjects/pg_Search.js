@@ -1,4 +1,4 @@
-class SearchPage {
+class PGSearchPage {
     get tf_Location() {
       return $("//input[@id=':Ra9:']");
     }
@@ -63,5 +63,5 @@ class SearchPage {
   
   }
   
-  export default new SearchPage();
+  export default new PGSearchPage();
   

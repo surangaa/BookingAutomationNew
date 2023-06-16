@@ -1,7 +1,7 @@
-import HomePage from '../pageobjects/pg_home.js'
+import HomePage from "../pageobjects/pg_home.js"
 
-class HomeComponent {
-  async selectCountry() {
+class Home {
+  async bc_SelectCountry() {
     //close the randomly appearing modal dialog
     await HomePage.btn_ModalClose.click();
 
@@ -12,31 +12,34 @@ class HomeComponent {
     await HomePage.btn_CountryUk.click();
   }
 
-  async selectCurrency() {
+  async bc_SelectCurrency() {
     //click on home page currency btn
     await HomePage.btn_Currency.click();
+
     //selelct usd as the currency
     await HomePage.btn_CurrencyUsd.click();
   }
 
-  async clickStaysBtn() {
+  async bc_ClickStaysBtn() {
     //click stays button
     await HomePage.btn_Stays.click();
   }
 
-  async dismissAlert() {
+  async bc_DismissAlert() {
     //wait for alert to appear
     await HomePage.btn_AlertClose.waitForExist({ timeout: 10000 });
+
     //dimiss the alert
     await HomePage.btn_AlertClose.click();
   }
 
-  async checkForAlert() {
+  async bc_CheckForAlert() {
     browser.pause(2000);
+    
     //verify whether the alert is opened
     let isOpen = await HomePage.btn_AlertClose.isDisplayed();
     await expect(isOpen).toEqual(false);
   }
 }
 
-export default new HomeComponent();
+export default new Home();

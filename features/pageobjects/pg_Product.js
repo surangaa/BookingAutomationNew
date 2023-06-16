@@ -1,7 +1,7 @@
 
-class ProductPage {
+class PGProductPage {
   get lbl_SecondProductName() {
-    return $("(//div[@data-testid='property-card'])[2]//h3//div[1]")
+    return $("(//div[@data-testid='title'])[2]")
   }
 
   get lbl_SecondProductPrice() {
@@ -50,4 +50,4 @@ class ProductPage {
 
 }
 
-export default new ProductPage();
+export default new PGProductPage();

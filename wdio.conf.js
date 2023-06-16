@@ -28,12 +28,12 @@ export const config = {
     // will be called from there.
     //
     specs: [
-        './features/bookingplacement.feature',
+        './features/bookingPlacement.feature',
     ],
     // Patterns to exclude.
     exclude: [ ],
     suites: {
-        regression: ['./features/bookingplacement.feature']
+        regression: ['./features/bookingPlacement.feature']
 },
     //
     // ============

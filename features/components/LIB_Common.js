@@ -1,15 +1,15 @@
 
-class CommonComponent {
-    async openHomePage(url) {
+class Common {
+    async bc_OpenHomePage(prm_Url) {
        //load the booking.com website url 
-        await browser.url(url);  
+        await browser.url(prm_Url);  
     }
   
-    verifyPageUrl = async () => {
+    bc_VerifyPageUrl = async () => {
       //verify that loaded url is booking.com 
       await expect(browser).toHaveUrlContaining('booking')
       console.log('booking.com url is loaded')
     }
   }
   
-  export default new CommonComponent();
+  export default new Common();

@@ -1,45 +1,42 @@
-import { Given, When, Then } from '@wdio/cucumber-framework';
-import OrderComponent from '../components/bc_Order.js';
-import { setValue, getValue } from '@wdio/shared-store-service'
-import report from '@wdio/allure-reporter'
-import userservice from '../services/userservice.js';
-
+import { Given, When, Then } from "@wdio/cucumber-framework";
+import orderCom from "../components/LIB_Order.js";
+import { setValue, getValue } from "@wdio/shared-store-service";
+import report from "@wdio/allure-reporter";
+import userService from "../services/useService.js";
 
 Then(/^checkout, checkin dates and amount should be same$/, async () => {
-    //verify booking details in the Order Page
-    const checkinorder = await getValue("checkindate");
-    const checkoutorder = await getValue("checkoutdate");
-    const fullamount = await getValue("fullamount")
+  //verify booking details in the Order Page
+  const checkInOrder = await getValue("checkindate");
+  const checkOutOrder = await getValue("checkoutdate");
+  const fullAmount = await getValue("fullamount");
 
-    report.addStep('getting checkindate, checkoutdate and totalcost from local storage')
- 
-    await OrderComponent.verifyBooking(checkinorder, checkoutorder, fullamount);
-    report.addStep('verifing the checkindate, checkoutdate and total cost')
+  report.addStep(
+    "getting checkindate, checkoutdate and totalcost from local storage"
+  );
 
-  });
-  
-  When(/^user enters (.+) and click Next$/, async (userType) => {
-        const firstname = (await userservice.getUserByType(userType)).firstName
-        const lastname = (await userservice.getUserByType(userType)).lastName
-        const email = (await userservice.getUserByType(userType)).email
+  await orderCom.bc_VerifyBooking(checkInOrder, checkOutOrder, fullAmount);
+  report.addStep("verifing the checkindate, checkoutdate and total cost");
+});
 
-      //fill firstname, lastname and email 
-      await OrderComponent.fillDetailsForm(firstname, lastname, email)
-      report.addStep('fillout firstname, lastname and email address')
+When(/^user enters (.+) and click Next$/, async (userType) => {
+  const firstName = (await userService.getUserByType(userType)).firstName;
+  const lastName = (await userService.getUserByType(userType)).lastName;
+  const emailAddress = (await userService.getUserByType(userType)).email;
 
-      await browser.pause(3000);
+  //fill firstname, lastname and email
+  await orderCom.bc_FillDetailsForm(firstName, lastName, emailAddress);
+  report.addStep("fillout firstname, lastname and email address");
 
+  await browser.pause(3000);
+});
 
-  });
-  
-  
-  Then(/^entered (.+) should be same$/, async (userType) => {
-    await browser.pause(3000);
-      //verify form details
-      const firstname = (await userservice.getUserByType(userType)).firstName
-      const lastname = (await userservice.getUserByType(userType)).lastName
-      const email = (await userservice.getUserByType(userType)).email
+Then(/^entered (.+) should be same$/, async (userType) => {
+  await browser.pause(3000);
+  //verify form details
+  const firstName = (await userService.getUserByType(userType)).firstName;
+  const lastName = (await userService.getUserByType(userType)).lastName;
+  const emailAddress = (await userService.getUserByType(userType)).email;
 
-      await OrderComponent.verifyFormDetails(firstname, lastname, email)
-      report.addStep('verifying firstname, lastname and email address')
-  });
+  await orderCom.bc_VerifyFormDetails(firstName, lastName, emailAddress);
+  report.addStep("verifying firstname, lastname and email address");
+});

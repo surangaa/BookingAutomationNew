@@ -1,4 +1,4 @@
-class HomePage {
+class PGHomePage {
   get btn_Country() {
     return $('(//span[@class="cb5ebe3ffb"]/button)[2]');
   }
@@ -36,4 +36,4 @@ class HomePage {
 
 }
 
-export default new HomePage();
+export default new PGHomePage();

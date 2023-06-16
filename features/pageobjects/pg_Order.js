@@ -1,5 +1,5 @@
 
-class OrderPage {
+class PGOrderPage {
   get lbl_Indate() {
     return $('(//time/descendant::span)[1]');
   }
@@ -47,4 +47,4 @@ class OrderPage {
 
 }
 
-export default new OrderPage();
+export default new  PGOrderPage();
