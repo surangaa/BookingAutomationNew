@@ -1,10 +1,12 @@
 @bookingfeature
-Feature: TC_001_ValidatingBookingProcess
+Feature: Test the Booking Process
+    As a user
+    I can proceed with placing order, cancel the booking process and navigate back to home page
 
     Background:
         Given The user is navigated to "/"
 
-    Scenario: As a user, I can proceed with placing order, cancel the booking process and navigate back to home page
+    Scenario: TC001_Test the booking process
         When  the user perform country selection
         Then the country should be changed to UK
         When  the user perform currency selection

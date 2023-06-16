@@ -21,11 +21,12 @@
     "bookingfeature": "wdio run ./wdio.conf.js --cucumberOptions.tagExpressions='@bookingfeature'",
     "test:qa": "wdio run ./wdio.QA.conf.js && npm run open-allure",
     "test:stg": "wdio run ./wdio.STG.conf.js && npm run open-allure"
-
   },
   "dependencies": {
     "allure-commandline": "^2.22.0",
     "chai": "^4.3.7",
-    "chai-as-promised": "^7.1.1"
+    "chai-as-promised": "^7.1.1",
+    "dotenv": "^16.2.0",
+    "dotenv-flow": "^3.2.0"
   }
 }

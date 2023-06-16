@@ -4,10 +4,6 @@ class JsonUtils {
       return jsonArray;
     };
   
-    objectToJSONArrayWithKeys = async (userdata) => {
-      const jsonArray = await Object.keys(userdata).map((key) => userdata[key]);
-      return jsonArray;
-    };
   }
   
   export default new JsonUtils();
